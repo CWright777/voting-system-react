@@ -130,5 +130,12 @@ describe('application logic', () => {
         })
       }));
     });
+
+    it('does not allow entries to be voted if they are not included in the current pair', () => {
+      const state = Map({
+        pair: List.of('Trainspotting', '28 Days Later'),
+      });
+      expect(vote(state,'The Lone Ranger')).equal(state)
+    });
   });
 });
